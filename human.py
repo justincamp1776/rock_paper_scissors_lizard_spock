@@ -10,7 +10,7 @@ class Human(Player):
 
     def select_gesture(self, list_of_gestures):
         self.display_gestures(self.gestures)
-        user_input = input("Please enter your gesture from the list above")
+        user_input = input("Please type your selection from the list above  :")
 
         if user_input.upper() == list_of_gestures[0].upper():
             return list_of_gestures[0]

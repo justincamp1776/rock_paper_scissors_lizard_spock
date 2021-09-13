@@ -1,0 +1,71 @@
+p1_wins = []                
+p2_wins = []
+ai_wins = []
+
+Rock crushes Scissors
+Scissors cuts Paper
+Paper covers Rock
+Rock crushes Lizard
+Lizard poisons Spock
+Spock smashes Scissors
+Scissors decapitates Lizard
+Lizard eats Paper
+Paper disproves Spock
+Spock vaporizes Rock
+
+rock 0
+paper 1
+scissors 2
+lizard 3
+spock 4
+
+Rock
+if p1 == l[0]:
+    if p2 == l[1] or p2 == l[3]:
+    p1_wins.append("win")
+    print("Player 1 wins")
+if p2 == l[0]:
+    if p1 == l[1] or p1 == l[3]:
+    p 2_wins.append("win")
+    print("Player 2 wins")
+
+Paper
+if p1 == l[1]:
+    if p2 == l[0] or p2 == l[4]:
+    p1_wins.append("win")
+    print("Player 1 wins")
+if p2 == l[1]:
+    if p1 == l[0] or p1 == l[4]:
+    p2_wins.append("win")
+    print("Player 2 wins")
+
+Scissors
+if p1 == l[2]:
+    if p2 == l[1] or p2 == l[3]:
+    p1_wins.append("win")
+    print("Player 1 wins")
+if p2 == l[2]:
+    if p1 == l[1] or p1 == l[3]:
+    p2_wins.append("win")
+    print("Player 2 wins")
+
+Lizard
+if p1 == l[3]:
+    if p2 == l[4] or p2 == l[1]:
+    p1_wins.append("win")
+    print("Player 1 wins")
+if p2 == l[3]:
+    if p1 == l[4] or p1 == l[1]:
+    p2_wins.append("win")
+    print("Player 2 wins")
+
+
+Spock
+if p1 == l[4]:
+    if p2 == l[2] or p2 == l[0]:
+    p1_wins.append("win")
+    print("Player 1 wins")
+if p2 == l[4]:
+    if p1 == l[2] or p1 == l[0]:
+    p2_wins.append("win")
+    print("Player 2 wins")
