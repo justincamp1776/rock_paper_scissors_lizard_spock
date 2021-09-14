@@ -5,7 +5,8 @@ from player import Player
 class Human(Player):
 
     # what is has
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         super().__init__()
 
     def select_gesture(self, list_of_gestures):
