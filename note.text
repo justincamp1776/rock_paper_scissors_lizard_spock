@@ -1,24 +1,12 @@
 
 tasks:
 
-1. adjust score count
+1. adjust score count - COMPLETE
         remove lists
 
-2. account for bad user input on 'would you like to play again?'
+2. account for bad user input on 'would you like to play again?'- COMPLETE
 
 3. refactor gesture selection to include a for loop
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -28,31 +16,12 @@ Tasks:
 Make MVP
 1. Debug determine_winner. - COMPLETE
 
-2. Account for bad user input - (Hold off until refactor)
+2. Account for bad user input - (Hold off until refactor) - COMPLETE
 
 Refactor
-1. Refactor to include choose_gesture() and override function in computer class. (Beauty of inheritance)
+1. Refactor to include choose_gesture() and override function in computer class. (Beauty of inheritance)- COMPLETE
 
-2. End result should should include only to instances in game class(). player1 and player2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+2. End result should should include only to instances in game class(). player1 and player2- COMPLETE
 
 
 

@@ -13,18 +13,17 @@ class Game:
         self.run_game()
 
     # Instantiates 2 objects and assigns them as values to attribute player_1 and attribute player_2
-
     def run_game(self):
         self.display_rules()
         user_input = input(
-            "Please select Single Player[1] or Multi-Player[2] Please Type: '1' or '2' :")
+            "Please select Single Player[1] or Multi-Player[2] Please Type: '1' or '2'  ")
         if user_input == "1":
             self.player_1 = Human(input("Please enter Player 1's name :"))
             self.player_2 = Computer("AI")
             self.play_game()
         elif user_input == "2":
-            self.player_1 = Human(input("Please enter Player 1's name :"))
-            self.player_2 = Human(input("Please enter Player 2's name :"))
+            self.player_1 = Human(input("Please enter Player 1's name  "))
+            self.player_2 = Human(input("Please enter Player 2's name  "))
             self.play_game()
 
     def display_rules(self):
@@ -44,6 +43,7 @@ class Game:
     # Prompts user to select_gesture and calls determine_winner
 
     def play_game(self):
+        print(f'{self.player_1.name}, make the first move!')
         while self.player_1.score < 2 or self.player_2.score < 2:
             p1_pick = self.player_1.select_gesture(self.player_1.gestures)
             print(f'{self.player_1.name} selects: {p1_pick}')
@@ -81,7 +81,7 @@ class Game:
         if p1 == list[2]:
             if p2 == list[1] or p2 == list[3]:
                 self.player_1.score += 1
-                print("Player 1 wins the round.")
+                print(f'{self.player_1.name} wins the round!')
         if p2 == list[2]:
             if p1 == list[1] or p1 == list[3]:
                 self.player_2.score += 1
@@ -108,13 +108,12 @@ class Game:
                 print(f'{self.player_2.name} wins the round!')
 
     # Displays the winner and asks user if they would like to play again
-
     def display_winner(self, player):
         print(f'{player.name} wins the game!!!')
         valid = False
         while not valid:
             user_input = input(
-                "Would you like to [1]Play Again or [2]Start Over? Enter '1' or '2'.  :")
+                "Would you like a Rematch[1] or Main Menu[2]? Enter '1' or '2'  ")
             if user_input.upper() == "1".upper():
                 valid = True
                 self.player_1.score = 0
