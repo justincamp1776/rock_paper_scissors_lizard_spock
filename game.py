@@ -11,10 +11,9 @@ class Game:
         JJ TODO: Refactor so that Game only has two player attributes: self.player_1 and self.player_2
         Based on the user's selection of single or multiplayer, these will be assigned to either Human and Human or Human and Computer
         """
-        self.player = Player()
-        self.player_1 = Human("Player 1")
-        self.player_2 = Human("Player 2")
-        self.computer = Computer("AI")
+
+        self.player_1 = None
+        self.player_2 = None
         self.p1_wins = []
         self.p2_wins = []
         self.run_game()
@@ -24,9 +23,13 @@ class Game:
         user_input = input(
             "Please select Single Player[1] or Multi-Player[2] Please Type: '1' or '2'.  :")
         if user_input == "1":
-            self.single_play()
+            self.player_1 = Human("Player 1")
+            self.player_2 = Computer("AI")
+            self.play_game()
         elif user_input == "2":
-            self.multi_play()
+            self.player_1 = Human("Player 1")
+            self.player_2 = Human("Player 2")
+            self.play_game()
 
     def display_rules(self):
         print("Welcome to Rock, Paper, Scissors, Lizard, Spock.")
@@ -52,86 +55,67 @@ class Game:
             list_of_gestures)
         return player_two_choice
 
-    def comp_choice(self, AI, list_of_gestures):
-        computer_choice = AI.comp_selection(list_of_gestures)
-        return computer_choice
-
-    def multi_play(self):
+    def play_game(self):
         while len(self.p1_wins) < 2 or len(self.p2_wins < 2):
-            print("Player One's Turn")
-            p1_pick = self.play1_choice(self.player_1, self.player.gestures)
+            p1_pick = self.play1_choice(self.player_1, self.player_1.gestures)
             print(f'Player 1 selects: {p1_pick}')
-            print("Player Two's Turn")
-            p2_pick = self.play2_choice(self.player_2, self.player.gestures)
+            p2_pick = self.play2_choice(self.player_2, self.player_2.gestures)
             print(f'Player 2 selects: {p2_pick}')
-            self.decide_winner(p1_pick, p2_pick, self.player.gestures)
+            self.decide_winner(p1_pick, p2_pick, self.player_1.gestures)
             if len(self.p1_wins) == 2:
                 self.display_winner(self.player_1)
             elif len(self.p2_wins) == 2:
                 self.display_winner(self.player_2)
 
-    def single_play(self):
-        while len(self.p1_wins) < 2 or len(self.p2_wins) < 2:
-            print("Player One's Turn")
-            p1_pick = self.play1_choice(self.player_1, self.player.gestures)
-            print(f'Player 1 selects: {p1_pick}')
-            AI_pick = self.comp_choice(self.computer, self.player.gestures)
-            print(f'Player 2 selects: {AI_pick}')
-            self.decide_winner(p1_pick, AI_pick, self.player.gestures)
-            if len(self.p1_wins) == 2:
-                self.display_winner(self.player_1)
-            elif len(self.p2_wins) == 2:
-                self.display_winner(self.computer)
-
     def decide_winner(self, p1, p2, list):
         # rock
         if p1 == list[0]:
             if p2 == list[2] or p2 == list[3]:
-                self.p1_wins.append("win")
+                self.p1_wins.append(1)
                 print("Player 1 wins the round.")
         if p2 == list[0]:
             if p1 == list[2] or p1 == list[3]:
-                self.p2_wins.append("win")
+                self.p2_wins.append(1)
                 print("Player 2 wins the round.")
 
         # paper
         if p1 == list[1]:
             if p2 == list[0] or p2 == list[4]:
-                self.p1_wins.append("win")
+                self.p1_wins.append(1)
                 print("Player 1 wins the round.")
         if p2 == list[1]:
             if p1 == list[0] or p1 == list[4]:
-                self.p2_wins.append("win")
+                self.p2_wins.append(1)
                 print("Player 2 wins the round.")
 
         # scissors
         if p1 == list[2]:
             if p2 == list[1] or p2 == list[3]:
-                self.p1_wins.append("win")
+                self.p1_wins.append(1)
                 print("Player 1 wins the round.")
         if p2 == list[2]:
             if p1 == list[1] or p1 == list[3]:
-                self.p2_wins.append("win")
+                self.p2_wins.append(1)
                 print("Player 2 wins the round.")
 
         # lizard
         if p1 == list[3]:
             if p2 == list[4] or p2 == list[1]:
-                self.p1_wins.append("win")
+                self.p1_wins.append(1)
                 print("Player 1 wins the round.")
         if p2 == list[3]:
             if p1 == list[4] or p1 == list[1]:
-                self.p2_wins.append("win")
+                self.p2_wins.append(1)
                 print("Player 2 wins the round!")
 
         # spock
         if p1 == list[4]:
             if p2 == list[2] or p2 == list[0]:
-                self.p1_wins.append("win")
+                self.p1_wins.append(1)
                 print("Player 1 wins the round!")
         if p2 == list[4]:
             if p1 == list[2] or p1 == list[0]:
-                self.p2_wins.append("win")
+                self.p2_wins.append(1)
                 print("Player 2 wins the round!")
 
     def display_winner(self, player):
