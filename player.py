@@ -1,6 +1,7 @@
 class Player:
 
     def __init__(self):
+
         self.gestures = []
         self.create_list()
 
@@ -13,3 +14,8 @@ class Player:
 
     def display_gestures(self, list):
         print(list)
+
+    def choose_gesture(self):
+        # JJ TODO: Override this method in the Human and Computer classes
+        # the result will always be the same (returns a string gesture)
+        pass

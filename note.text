@@ -1,3 +1,37 @@
+Tasks:
+
+Make MVP
+1. Debug determine_winner. - COMPLETE
+
+2. Account for bad user input - (Hold off until refactor)
+
+Refactor
+1. Refactor to include choose_gesture() and override function in computer class. (Beauty of inheritance)
+
+2. End result should should include only to instances in game class(). player1 and player2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 p1_wins = []                
 p2_wins = []
 ai_wins = []

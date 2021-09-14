@@ -9,6 +9,5 @@ class Computer(Player):
         self.name = name
         super().__init__()
 
-    def comp_selection(self):
-        print("Computer Selection:")
-        return random.choice(self.gestures)
+    def comp_selection(self, list):
+        return random.choice(list)
