@@ -10,23 +10,21 @@ class Game:
 
         self.player_1 = None
         self.player_2 = None
-        self.p1_wins = []
-        self.p2_wins = []
         self.run_game()
 
-    # Instantiates 2 objects them as values to attribute player_1 and attribute player_2
+    # Instantiates 2 objects and assigns them as values to attribute player_1 and attribute player_2
 
     def run_game(self):
         self.display_rules()
         user_input = input(
-            "Please select Single Player[1] or Multi-Player[2] Please Type: '1' or '2'.  :")
+            "Please select Single Player[1] or Multi-Player[2] Please Type: '1' or '2' :")
         if user_input == "1":
-            self.player_1 = Human("Player 1")
+            self.player_1 = Human(input("Please enter Player 1's name :"))
             self.player_2 = Computer("AI")
             self.play_game()
         elif user_input == "2":
-            self.player_1 = Human("Player 1")
-            self.player_2 = Human("Player 2")
+            self.player_1 = Human(input("Please enter Player 1's name :"))
+            self.player_2 = Human(input("Please enter Player 2's name :"))
             self.play_game()
 
     def display_rules(self):
@@ -43,91 +41,85 @@ class Game:
         print("Paper disproves Spock")
         print("Spock vaporizes Rock")
 
-    # def choose_gesture(self, player, list_of_gestures):
-    #     player_one_choice = player.select_gesture(
-    #         list_of_gestures)
-    #     return player_one_choice
-
-    # def play_game(self):
-    #     while len(self.p1_wins) < 2 or len(self.p2_wins < 2):
-    #         p1_pick = self.choose_gesture(self.player_1, self.player_1.gestures)
-    #         print(f'Player 1 selects: {p1_pick}')
-    #         p2_pick = self.choose_gesture(self.player_2, self.player_2.gestures)
-    #         print(f'Player 2 selects: {p2_pick}')
-    #         self.decide_winner(p1_pick, p2_pick, self.player_1.gestures)
-    #         if len(self.p1_wins) == 2:
-    #             self.display_winner(self.player_1)
-    #         elif len(self.p2_wins) == 2:
-    #             self.display_winner(self.player_2)
+    # Prompts user to select_gesture and calls determine_winner
 
     def play_game(self):
-        while len(self.p1_wins) < 2 or len(self.p2_wins < 2):
+        while self.player_1.score < 2 or self.player_2.score < 2:
             p1_pick = self.player_1.select_gesture(self.player_1.gestures)
-            print(f'Player 1 selects: {p1_pick}')
+            print(f'{self.player_1.name} selects: {p1_pick}')
             p2_pick = self.player_2.select_gesture(self.player_2.gestures)
-            print(f'Player 2 selects: {p2_pick}')
+            print(f'{self.player_2.name} selects: {p2_pick}')
             self.decide_winner(p1_pick, p2_pick, self.player_1.gestures)
-            if len(self.p1_wins) == 2:
+            if self.player_1.score == 2:
                 self.display_winner(self.player_1)
-            elif len(self.p2_wins) == 2:
+            elif self.player_2.score == 2:
                 self.display_winner(self.player_2)
 
     def decide_winner(self, p1, p2, list):
-        # rock
+
+        # compares opponents gesture to rock rules
         if p1 == list[0]:
             if p2 == list[2] or p2 == list[3]:
-                self.p1_wins.append(1)
-                print("Player 1 wins the round.")
+                self.player_1.score += 1
+                print(f'{self.player_1.name} wins the round!')
         if p2 == list[0]:
             if p1 == list[2] or p1 == list[3]:
-                self.p2_wins.append(1)
-                print("Player 2 wins the round.")
+                self.player_2.score += 1
+                print(f'{self.player_2.name} wins the round!')
 
-        # paper
+        # compares opponents gesture to paper rules
         if p1 == list[1]:
             if p2 == list[0] or p2 == list[4]:
-                self.p1_wins.append(1)
-                print("Player 1 wins the round.")
+                self.player_1.score += 1
+                print(f'{self.player_1.name} wins the round!')
         if p2 == list[1]:
             if p1 == list[0] or p1 == list[4]:
-                self.p2_wins.append(1)
-                print("Player 2 wins the round.")
+                self.player_2.score += 1
+                print(f'{self.player_2.name} wins the round!')
 
-        # scissors
+        # compares opponents gesture to scissors rules
         if p1 == list[2]:
             if p2 == list[1] or p2 == list[3]:
-                self.p1_wins.append(1)
+                self.player_1.score += 1
                 print("Player 1 wins the round.")
         if p2 == list[2]:
             if p1 == list[1] or p1 == list[3]:
-                self.p2_wins.append(1)
-                print("Player 2 wins the round.")
+                self.player_2.score += 1
+                print(f'{self.player_2.name} wins the round!')
 
-        # lizard
+        # compares opponents gesture to lizard rules
         if p1 == list[3]:
             if p2 == list[4] or p2 == list[1]:
-                self.p1_wins.append(1)
-                print("Player 1 wins the round.")
+                self.player_1.score += 1
+                print(f'{self.player_1.name} wins the round!')
         if p2 == list[3]:
             if p1 == list[4] or p1 == list[1]:
-                self.p2_wins.append(1)
-                print("Player 2 wins the round!")
+                self.player_2.score += 1
+                print(f'{self.player_2.name} wins the round!')
 
-        # spock
+        # compares opponents gesture to spock rules
         if p1 == list[4]:
             if p2 == list[2] or p2 == list[0]:
-                self.p1_wins.append(1)
-                print("Player 1 wins the round!")
+                self.player_1.score += 1
+                print(f'{self.player_1.name} wins the round!')
         if p2 == list[4]:
             if p1 == list[2] or p1 == list[0]:
-                self.p2_wins.append(1)
-                print("Player 2 wins the round!")
+                self.player_2.score += 1
+                print(f'{self.player_2.name} wins the round!')
+
+    # Displays the winner and asks user if they would like to play again
 
     def display_winner(self, player):
         print(f'{player.name} wins the game!!!')
-        user_input = input(
-            "Would you like to play again? Enter 'yes' or 'no'.  :")
-        if user_input.upper() == "yes".upper():
-            self.p1_wins = []
-            self.p2_wins = []
-            self.run_game()
+        valid = False
+        while not valid:
+            user_input = input(
+                "Would you like to [1]Play Again or [2]Start Over? Enter '1' or '2'.  :")
+            if user_input.upper() == "1".upper():
+                valid = True
+                self.player_1.score = 0
+                self.player_2.score = 0
+                self.play_game()
+            elif user_input.upper() == "2".upper():
+                valid = True
+                self.run_game()

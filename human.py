@@ -6,5 +6,4 @@ class Human(Player):
 
     # what is has
     def __init__(self, name):
-        self.name = name
-        super().__init__()
+        super().__init__(name)
