@@ -14,6 +14,8 @@ class Game:
         self.p2_wins = []
         self.run_game()
 
+    # Instantiates 2 objects them as values to attribute player_1 and attribute player_2
+
     def run_game(self):
         self.display_rules()
         user_input = input(
@@ -41,21 +43,28 @@ class Game:
         print("Paper disproves Spock")
         print("Spock vaporizes Rock")
 
-    def play1_choice(self, player1, list_of_gestures):
-        player_one_choice = player1.select_gesture(
-            list_of_gestures)
-        return player_one_choice
+    # def choose_gesture(self, player, list_of_gestures):
+    #     player_one_choice = player.select_gesture(
+    #         list_of_gestures)
+    #     return player_one_choice
 
-    def play2_choice(self, player2, list_of_gestures):
-        player_two_choice = player2.select_gesture(
-            list_of_gestures)
-        return player_two_choice
+    # def play_game(self):
+    #     while len(self.p1_wins) < 2 or len(self.p2_wins < 2):
+    #         p1_pick = self.choose_gesture(self.player_1, self.player_1.gestures)
+    #         print(f'Player 1 selects: {p1_pick}')
+    #         p2_pick = self.choose_gesture(self.player_2, self.player_2.gestures)
+    #         print(f'Player 2 selects: {p2_pick}')
+    #         self.decide_winner(p1_pick, p2_pick, self.player_1.gestures)
+    #         if len(self.p1_wins) == 2:
+    #             self.display_winner(self.player_1)
+    #         elif len(self.p2_wins) == 2:
+    #             self.display_winner(self.player_2)
 
     def play_game(self):
         while len(self.p1_wins) < 2 or len(self.p2_wins < 2):
-            p1_pick = self.play1_choice(self.player_1, self.player_1.gestures)
+            p1_pick = self.player_1.select_gesture(self.player_1.gestures)
             print(f'Player 1 selects: {p1_pick}')
-            p2_pick = self.play2_choice(self.player_2, self.player_2.gestures)
+            p2_pick = self.player_2.select_gesture(self.player_2.gestures)
             print(f'Player 2 selects: {p2_pick}')
             self.decide_winner(p1_pick, p2_pick, self.player_1.gestures)
             if len(self.p1_wins) == 2:
