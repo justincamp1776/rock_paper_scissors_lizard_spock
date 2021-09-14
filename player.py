@@ -15,25 +15,27 @@ class Player:
     def display_gestures(self, list):
         print(list)
 
-    def choose_gesture(self):
-        # JJ TODO: Override this method in the Human and Computer classes
-        # the result will always be the same (returns a string gesture)
-        pass
-
     def select_gesture(self, list_of_gestures):
-        self.display_gestures(self.gestures)
-        user_input = input("Please type your selection from the list above  :")
 
-        if user_input.upper() == list_of_gestures[0].upper():
-            return list_of_gestures[0]
-        elif user_input.upper() == list_of_gestures[1].upper():
-            return list_of_gestures[1]
-        elif user_input.upper() == list_of_gestures[2].upper():
-            return list_of_gestures[2]
-        elif user_input.upper() == list_of_gestures[3].upper():
-            return list_of_gestures[3]
-        elif user_input.upper() == list_of_gestures[4].upper():
-            return list_of_gestures[4]
-        else:
-            print("Entry invalid. Please Try again")
-            self.player_selection(self, list_of_gestures)
+        valid = False
+        while not valid:
+            self.display_gestures(self.gestures)
+            user_input = input(
+                "Please type your selection from the list above  :")
+            if user_input.upper() == list_of_gestures[0].upper():
+                valid = True
+                return list_of_gestures[0]
+            elif user_input.upper() == list_of_gestures[1].upper():
+                valid = True
+                return list_of_gestures[1]
+            elif user_input.upper() == list_of_gestures[2].upper():
+                valid = True
+                return list_of_gestures[2]
+            elif user_input.upper() == list_of_gestures[3].upper():
+                valid = True
+                return list_of_gestures[3]
+            elif user_input.upper() == list_of_gestures[4].upper():
+                valid = True
+                return list_of_gestures[4]
+            else:
+                print("Entry invalid. Please Try again")

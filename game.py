@@ -7,10 +7,6 @@ import random
 class Game:
 
     def __init__(self):
-        """
-        JJ TODO: Refactor so that Game only has two player attributes: self.player_1 and self.player_2
-        Based on the user's selection of single or multiplayer, these will be assigned to either Human and Human or Human and Computer
-        """
 
         self.player_1 = None
         self.player_2 = None

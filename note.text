@@ -1,3 +1,43 @@
+
+1. What is the task you are trying to accomplish? What is the goal? 
+
+    I am trying to account for bad user input by providing an elif statement for any input != gestures. 
+    This conditional prints a message to the user and then calls itself using recursion.
+
+
+2. What do you think the problem or impediment is? 
+
+    When the function will allow the user infinite attempts to enter a gesture. However, the function is not returning
+    that gesture. Once the gesture is entered, AI selects a gesture and then both selections are printed to the screen.
+    In this case, the human selection = None.
+
+3. What have you specifically tried in your code? 
+
+    I added a return statement after the recursive call. This returned the unaccepted user input (i.e. "ccdsfew")
+
+What did you learn by dropping a breakpoint?
+
+    I learned that the function is actually capturing the original unaccepted input and hanging on to that value throughout
+    the process. Then when there is an acceptable input the unaccepted input is passed through resulting in "None".
+
+
+    I am not sure where to begin on this one.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Tasks:
 
 Make MVP
